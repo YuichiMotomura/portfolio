@@ -1,2 +1,5 @@
 class SpotsController < ApplicationController
+  def index
+    # binding.pry
+  end
 end
