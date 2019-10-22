@@ -5,7 +5,7 @@ document.addEventListener('turbolinks:load', function () {
     datasets: [
       {
         label: "",
-        data: [5, 3, 4, 1, 4],
+        data: [5, 3, 4, 1, 4, 3],
         
        }
     ]

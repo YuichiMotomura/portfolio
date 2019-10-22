@@ -1,28 +1,4 @@
-%header.spots__header
-  .spots__header__contents
-    %h1.spots__header__contents__title
-      VOW!
-    %p
-      〜街の変な風景、紹介します〜
-
-    .spots__header__contents__btns
-      %ul.spots__header__contents__btns__left
-        %li
-          = link_to 'ジャンル', "#"
-          
-        %li
-          = link_to 'ランキング', "#"
-          
-      %ul.spots__header__contents__btns__right
-        %li
-          = link_to 'ユーザー登録', new_user_registration_path
-          
-        - if user_signed_in?
-          %li
-          = link_to 'ログアウト', destroy_user_session_path, method: 'delete'
-        - else
-          %li
-            = link_to 'ログイン', new_user_session_path
+= render partial: 'header'
 
 %main.spots__main
   .spots__main__contents

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_041927) do
+ActiveRecord::Schema.define(version: 2019_10_20_112952) do
 
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
@@ -20,11 +20,34 @@ ActiveRecord::Schema.define(version: 2019_10_19_041927) do
     t.index ["spot_id"], name: "index_photos_on_spot_id"
   end
 
+  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "radars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "retro"
+    t.integer "rare"
+    t.integer "insta"
+    t.integer "emotional"
+    t.integer "delicious"
+    t.integer "kawaii"
+    t.bigint "spot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_radars_on_spot_id"
+  end
+
   create_table "spots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "prefecture_id"
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_spots_on_author_id"
+    t.index ["prefecture_id"], name: "index_spots_on_prefecture_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -40,4 +63,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_041927) do
   end
 
   add_foreign_key "photos", "spots"
+  add_foreign_key "radars", "spots"
+  add_foreign_key "spots", "prefectures"
+  add_foreign_key "spots", "users", column: "author_id"
 end

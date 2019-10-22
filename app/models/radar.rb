@@ -1,0 +1,5 @@
+class Radar < ApplicationRecord
+  belongs_to :spot
+
+  validates :retro, :rare, :insta, :emotional, :delicious, :kawaii, presence: true
+end
