@@ -1,0 +1,90 @@
+= render partial: 'header'
+
+%main.spots__main
+  .spots__main__new
+    .spots__main__new__contents
+      %h2.spots__main__new__title
+        新規スポットの作成
+
+      = form_with model: @spot, local: true, class: 'spots__main__new__form' do |f|
+        .spots__main__new__form__common
+          = f.label :title do
+            = icon('fas', 'circle')
+            スポット名（必須）
+            %br
+          = f.text_field :title, placeholder: '最大50文字'
+
+        .spots__main__new__form__common
+          = f.label :text do
+            = icon('fas', 'circle')
+            スポットの紹介・エピソード（必須）
+            %br
+          = f.text_area :text, rows: 8, placeholder: '最大400文字'
+
+        .spots__main__new__form__common.spots__main__new__form__prefecture
+          = f.label :prefecture_id do
+            = icon('fas', 'circle')
+            スポットの所在地（必須）
+            %br
+          .spots__main__new__form__common.spots__main__new__form__prefecture--inner
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい'
+
+        .spots__main__new__form__common.spots__main__new__form__images
+          %h3
+            = icon('fas', 'circle')
+            写真アップロード
+          - 5.times do |t|
+            = f.fields_for :photos do |photo|
+              .spots__main__new__form__image
+                = photo.label :image do
+                  #{t + 1}. 
+                  = icon('fas', 'camera')
+                  ファイルを選択して下さい
+                = photo.file_field :image
+
+        
+
+        .spots__main__new__form__common
+          %h3
+            = icon('fas', 'circle')
+            評価(5段階)
+          
+          = f.fields_for :radar do |r|
+            .spots__main__new__form__radar
+              .spots__main__new__form__radar__labe
+                = r.label :retro, 'レトロ度'
+              .spots__main__new__form__radar__sele
+                = r.select :retro, [0, 1, 2, 3, 4, 5], include_blank: '選択して下さい'
+
+            .spots__main__new__form__radar
+              .spots__main__new__form__radar__labe
+                = r.label :rare, 'レア度'
+              .spots__main__new__form__radar__sele
+                = r.select :rare, [0, 1, 2, 3, 4, 5], include_blank: '選択して下さい', class: 'spots__main__new__form__radar__sele'
+
+            .spots__main__new__form__radar
+              .spots__main__new__form__radar__labe
+                = r.label :insta, 'インスタ映え'
+              .spots__main__new__form__radar__sele
+                = r.select :insta, [0, 1, 2, 3, 4, 5], include_blank: '選択して下さい', class: 'spots__main__new__form__radar__sele'
+
+            .spots__main__new__form__radar
+              .spots__main__new__form__radar__labe
+                = r.label :emotional, 'エモさ'
+              .spots__main__new__form__radar__sele
+                = r.select :emotional, [0, 1, 2, 3, 4, 5], include_blank: '選択して下さい', class: 'spots__main__new__form__radar__sele'
+
+            .spots__main__new__form__radar
+              .spots__main__new__form__radar__labe
+                = r.label :delicious, '美味しさ'
+              .spots__main__new__form__radar__sele
+                = r.select :delicious, [0, 1, 2, 3, 4, 5], include_blank: '選択して下さい', class: 'spots__main__new__form__radar__sele'
+
+            .spots__main__new__form__radar
+              .spots__main__new__form__radar__labe
+                = r.label :kawaii, 'かわいさ'
+              .spots__main__new__form__radar__sele
+                = r.select :kawaii, [0, 1, 2, 3, 4, 5], include_blank: '選択して下さい', class: 'spots__main__new__form__radar__sele'
+
+        .spots__main__new__form__submit
+          = f.submit '投稿する'
