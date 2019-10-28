@@ -43,6 +43,8 @@ gem 'chart-js-rails', '~> 0.1.4'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'gon', '~> 6.2.0'
+gem 'kaminari'
+gem 'jquery-rails'
 
 
 group :development, :test do

@@ -1,28 +1,37 @@
-%header.spots__header
+%header.spots__header#header
+  .spots__header__flash#flash
+    - if flash.notice.present?
+      - if flash[:notice]
+        .spots__header__flash--notice
+          = flash.notice
+      - else
+        .spots__header__flash--danger
+          = flash.notice
+
   .spots__header__contents
     .spots__header__contents__title
-      = link_to root_path do
+      = link_to root_path, data: {turbolinks: false} do
         街ログ！
     %p
       〜街の気になる風景、紹介します〜
 
-    .spots__header__contents__btns
-      %ul.spots__header__contents__btns__left
-        %li
-          = link_to 'ジャンル', "#", class: 'spots__header__contents__btns__left--1'
-          
-        %li
-          = link_to 'ランキング', "#", class: 'spots__header__contents__btns__left--2'
-          
-      %ul.spots__header__contents__btns__right
-        - if user_signed_in?
-          %li
-            = link_to '投稿する', new_spot_path, class: 'spots__header__contents__btns__right--1'
-          %li
-            = link_to 'ログアウト', destroy_user_session_path, method: 'delete', class: 'spots__header__contents__btns__right--2'
+  .spots__header__btns#headerBtns
+    %ul
+      %li
+        = link_to 'ジャンル', "#", class: 'spots__header__btns--1'
         
-        - else
-          %li
-            = link_to 'ログイン', new_user_session_path, class: 'spots__header__contents__btns__right--1'
-          %li
-            = link_to 'ユーザー登録', new_user_registration_path, class: 'spots__header__contents__btns__right--2'
+      %li
+        = link_to 'ランキング', "#", class: 'spots__header__btns--2'
+        
+
+      - if user_signed_in?
+        %li
+          = link_to '投稿する', new_spot_path, class: 'spots__header__btns--1', data: {turbolinks: false}
+        %li
+          = link_to 'ログアウト', destroy_user_session_path, method: 'delete', class: 'spots__header__btns--2'
+      
+      - else
+        %li
+          = link_to 'ログイン', new_user_session_path, class: 'spots__header__btns--1'
+        %li
+          = link_to 'ユーザー登録', new_user_registration_path, class: 'spots__header__btns--2'
