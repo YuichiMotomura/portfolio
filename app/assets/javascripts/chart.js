@@ -1,36 +1,31 @@
 document.addEventListener('turbolinks:load', function () {
-  
-  var data = {
-    labels: ['レトロ度', 'レア度', '美味度', '強烈度', '哀愁度', 'かわいい度'],
-    datasets: [
-      {
-        label: "",
-        data: [5, 3, 4, 1, 4, 3],
-        
-       }
-    ]
-  }
-  // var ctx = document.getElementsByClassName("mychart").getContext('2d');
-  var ctx = document.getElementsByClassName("mychart");
-  var ctx = Array.from(ctx);
-  console.log(ctx);
-  var options  = {
-    scale: {
-      ticks: {
-        min: 0,
-        max: 5,
-        stepSize: 1
+  if(gon.data != null) {
+    for ( var i = 0; i < gon.data.length; i++ ) {
+      var ctx = document.getElementById(`myChart${i}`);
+      
+      var options  = {
+        scale: {
+          ticks: {
+            min: 0,
+            max: 5,
+            stepSize: 1,
+            display: false
+          }
+        },
+        legend: {
+          display: false
+        }
       }
-    },
-    legend: {
-      display: false
+      var myRadarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['レトロ', '珍しい', 'インスタ映え', 'エモい', 'かわいい'],
+          datasets: [{
+          data: gon.data[i]
+        }]
+        },
+        options: options
+      });
     }
   }
-  ctx.forEach(function(ele){
-    var myRadarChart = new Chart(ele, {
-      type: 'radar',
-      data: data,
-      options: options
-    });
-  });
 });
