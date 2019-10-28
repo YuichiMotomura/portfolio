@@ -1,42 +1,49 @@
 .spots__main__contents__article
   .spots__main__contents__article__right
     .spots__main__contents__article__right__title
-      %p
-        渋すぎる! 下町で出会った昭和な喫茶店
+      %h2
+        = spot.title.truncate(30, omission: '...') if spot.title
 
     .spots__main__contents__article__right__prefecture
-      = link_to '東京都台東区', '#'
+      %p
+        = spot.prefecture.name if spot.prefecture
 
     .spots__main__contents__article__right__text
       %p
-        ここにtextが入りますここにtextが入ります
-        ここにtextが入りますここにtextが入ります
-        ここにtextが入りますここにtextが入ります
-        ここにtextが入りますここにtextが入ります
+        = simple_format(spot.text) if spot.text
 
-    .spots__main__contents__article__right__show
-      = link_to '#' do
-        %span
-          詳しく読む 
-        = icon 'fas', 'arrow-right'
+    
+        
+
     .spots__main__contents__article__right__bottom
-      .spots__main__contents__article__right__bottom__element
-        %p
-          投稿者： yuu
-      .spots__main__contents__article__right__bottom__element
-        %p
-          いいね！
-          = icon 'fas', 'heart'
-          3
+      .spots__main__contents__article__right__bottom__show
+        = link_to '#' do
+          %span
+            詳しく読む 
+          = icon 'fas', 'arrow-right'
+
+      .spots__main__contents__article__right__bottom__row
+        .spots__main__contents__article__right__bottom__row__element
+          %p
+            投稿者：
+            = spot.author.nickname if spot.author
+  
+        .spots__main__contents__article__right__bottom__row__element
+          %p
+            いいね！：
+            = icon 'fas', 'heart'
+            3
+        .spots__main__contents__article__right__bottom__row__element
+          %p
+            コメント：3件
+            
 
   .spots__main__contents__article__left
     .spots__main__contents__article__left__image
-      =image_tag 'IMG_8160.jpg'
+      =image_tag spot.photos[0].image.to_s if spot.photos[0]
 
     .spots__main__contents__article__left__chart
-      %canvas#myChart.mychart{height: "100", width: "100"}
+      %canvas{id: "myChart#{spot_counter}"}.mychart
       
-    .spots__main__contents__article__left__index
 
-    .spots__main__contents__article__left__like
 

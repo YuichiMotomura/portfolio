@@ -2,12 +2,9 @@
 
 %main.spots__main
   .spots__main__contents
-    = render 'article'
-    = render 'article'
-    = render 'article'
-    = render 'article'
-    = render 'article'
-    = render 'article'
-    
+    = render partial: 'article', collection: @spots, as: 'spot'
+
+  .spots__main__contents__paginate
+    = paginate(@spots)
 
 %footer
