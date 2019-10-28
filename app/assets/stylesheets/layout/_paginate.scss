@@ -1,0 +1,26 @@
+.pagination {
+  
+  font-size: 22px;
+  
+  & a {
+    text-decoration: none;
+    border: none;
+    color: #696969;
+  }
+  & span {
+    display: inline-block;
+    text-align: center;
+    margin-right: 8px;
+    &.current {
+      color: white;
+      background: $tokyo_red;
+      height: 35px;
+      width: 35px;
+      line-height: 35px;
+      border-radius: 22px;
+    }
+    &.next, &.prev  {
+      text-decoration-line: underline;
+    }
+  }
+}
