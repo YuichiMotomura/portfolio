@@ -1,0 +1,93 @@
+.spots {
+  &__show {
+    width: 100%;
+    min-height: calc(100vh - 223px);
+    background-color: lighten($tokyo_light_green, 30%);
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__contents {
+      width: 70%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      border-radius: 8px;
+      padding-top: 40px;
+      background-color: #ffffff;
+      
+      &__right {
+        position: relative;
+        width: 50%;
+        padding-right: 40px;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        &__title {
+          font-size: 30px;
+          margin-bottom: 12px;
+        }
+        
+        &__prefecture {
+          margin-bottom: 25px;
+          font-size: 20px;
+          padding-right: 20px;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: flex-end;
+        }
+        &__text {
+          font-size: 18px;
+          padding-right: 20px;
+          overflow: hidden;
+          margin-bottom: 25px;
+          & p {
+            word-wrap: break-word;
+          }
+        }
+        &__bottom {
+          position: absolute;
+          bottom: 0;
+          right: 40px;
+          margin-bottom: 10px;
+          
+          
+          margin-bottom: 20px;
+          &__row {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            &__element {
+              margin-left: 30px;
+              margin-bottom: 5px;
+            }
+          }
+          
+        }
+      }
+      &__left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        margin-bottom: 10px;
+        width: 50%;
+        &__chart {
+          width: 80%;
+          
+        }
+        &__image {
+          width: 70%;
+          text-align: center;
+          margin-bottom: 15px;
+          & img {
+            width: 100%;
+            
+          }
+        }
+      }
+    }
+  }
+}
