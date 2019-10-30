@@ -45,6 +45,7 @@ gem 'mini_magick'
 gem 'gon', '~> 6.2.0'
 gem 'kaminari'
 gem 'jquery-rails'
+gem 'ancestry'
 
 
 group :development, :test do
