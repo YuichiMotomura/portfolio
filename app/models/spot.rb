@@ -1,6 +1,6 @@
 class Spot < ApplicationRecord
-  has_many :photos
-  has_one :radar
+  has_many :photos, dependent: :destroy
+  has_one :radar, dependent: :destroy
   accepts_nested_attributes_for :photos, :radar
   belongs_to :prefecture
   belongs_to :author, class_name: 'User'
