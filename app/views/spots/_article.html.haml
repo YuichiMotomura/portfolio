@@ -6,18 +6,17 @@
 
     .spots__main__contents__article__right__prefecture
       %p
-        = spot.prefecture.name if spot.prefecture
+        - if spot.prefecture
+          = "#{spot.prefecture.parent.name} #{spot.prefecture.name}"
 
     .spots__main__contents__article__right__text
       %p
         = simple_format(spot.text) if spot.text
-
-    
         
 
     .spots__main__contents__article__right__bottom
       .spots__main__contents__article__right__bottom__show
-        = link_to '#' do
+        = link_to spot_path(spot), data: {turbolinks: false} do
           %span
             詳しく読む 
           = icon 'fas', 'arrow-right'

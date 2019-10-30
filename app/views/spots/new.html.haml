@@ -26,8 +26,9 @@
             = icon('fas', 'circle')
             スポットの所在地（必須）
             %br
-          .spots__main__new__form__common.spots__main__new__form__prefecture--inner
-            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい'
+          .spots__main__new__form__common#prefecture_select
+            .spots__main__new__form__prefecture--inner
+              = f.collection_select :prefecture_pre_id, Prefecture.where('id <= 47'), :id, :name, include_blank: '都道府県'
 
         .spots__main__new__form__common.spots__main__new__form__images
           %h3
