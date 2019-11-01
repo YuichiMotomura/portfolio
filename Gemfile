@@ -46,6 +46,7 @@ gem 'gon', '~> 6.2.0'
 gem 'kaminari'
 gem 'jquery-rails'
 gem 'ancestry'
+gem 'fog-aws'
 
 
 group :development, :test do
