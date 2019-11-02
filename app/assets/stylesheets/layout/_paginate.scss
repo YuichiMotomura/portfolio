@@ -20,7 +20,10 @@
       border-radius: 22px;
     }
     &.next, &.prev  {
-      text-decoration-line: underline;
+      & a {
+        text-decoration: overline;
+        border-bottom: 2px solid #696969;;
+      }
     }
   }
 }
