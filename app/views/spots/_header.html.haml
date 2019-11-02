@@ -1,12 +1,5 @@
 %header.spots__header#header
-  .spots__header__flash#flash
-    - if flash.notice.present?
-      - if flash[:notice]
-        .spots__header__flash--notice
-          = flash.notice
-      - else
-        .spots__header__flash--danger
-          = flash.notice
+  = render 'notifications'
 
   .spots__header__contents
     .spots__header__contents__title
