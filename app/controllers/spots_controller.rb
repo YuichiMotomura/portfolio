@@ -1,4 +1,6 @@
 class SpotsController < ApplicationController
+  before_action :redirect_to_root, only: [:new, :create, :destroy]
+
   def index
     @spots = Spot.order(id: 'DESC').page(params[:page]).per(10)
     gon.data = []
@@ -25,9 +27,10 @@ class SpotsController < ApplicationController
   end
 
   def create
-    spot = Spot.new(spot_params)
     
-    if spot.save!
+    @spot = Spot.new(spot_params)
+    
+    if @spot.save
       redirect_to root_path, notice: '投稿が完了しました' 
     else
       render :new
@@ -43,12 +46,15 @@ class SpotsController < ApplicationController
     spot = Spot.find(params[:id])
     spot.destroy
     redirect_to root_path, notice: '記事を削除しました'
-    # binding.pry
   end
 
 
   private
   def spot_params
-    params.require(:spot).permit(:title, :text, :prefecture_id, photos_attributes: [:image], radar_attributes: [:retro, :rare, :insta, :emotional, :kawaii]).merge(author_id: current_user.id)
+    params.require(:spot).permit(:title, :text, :prefecture_id, photos_attributes: [:image, :spot_id, :_destroy], radar_attributes: [:retro, :rare, :insta, :emotional, :kawaii]).merge(author_id: current_user.id)
+  end
+
+  def redirect_to_root
+    redirect_to root_path, alert: 'ログインしてください' unless user_signed_in?
   end
 end
