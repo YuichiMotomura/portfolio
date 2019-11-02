@@ -5,7 +5,7 @@ class Spot < ApplicationRecord
   belongs_to :prefecture
   belongs_to :author, class_name: 'User'
 
-  validates :title, :text, :prefecture_id, presence: true
+  validates :title, :text, :prefecture, :photos, presence: true
   validates :text, length: {maximum: 400}
   validates :title, length: {maximum: 50}
 end

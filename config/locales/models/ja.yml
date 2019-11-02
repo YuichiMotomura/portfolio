@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      spot:
+      radar:
+      photos:
+    attributes:
+      spot:
+        title: スポット名
+        text: スポットの紹介文
+        prefecture: スポットの所在地
+      radar:
+        retro: 評価：レトロ
+        rare: 評価：レア
+        insta: 評価：インスタ映え
+        emotional: 評価：エモい
+        kawaii: 評価：かわいい
+      photos:
+        image: 写真アップロード
+

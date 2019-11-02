@@ -19,7 +19,7 @@ document.addEventListener('turbolinks:load', function () {
       var myRadarChart = new Chart(ctx, {
         type: 'radar',
         data: {
-          labels: ['レトロ', '珍しい', 'インスタ映え', 'エモい', 'かわいい'],
+          labels: ['レトロ', 'レア', 'インスタ映え', 'エモい', 'かわいい'],
           datasets: [{
           data: gon.data[i]
         }]
