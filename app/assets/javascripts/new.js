@@ -5,7 +5,7 @@ $(function() {
   
   function buildHTML() {
     let html = `
-                <div class="spots__main__new__form__prefecture--inner">
+                <div class="spots__main__new__contents__form__prefecture--inner">
                   <select name="spot[prefecture_id]", id="spot_prefecture_id">
                   </select>
                 </div>
