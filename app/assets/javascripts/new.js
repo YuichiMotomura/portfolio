@@ -35,11 +35,11 @@ $(function() {
     })
     
     .done(function(prefectures) {
-      let selector = $('.spots__main__new__form__prefecture--inner');
+      let selector = $('.spots__main__new__contents__form__prefecture--inner');
       console.log(preNumber);
       console.log(selector.length);
       if (selector.length > 1) {
-        $('.spots__main__new__form__prefecture--inner:last').remove();
+        $('.spots__main__new__contents__form__prefecture--inner:last').remove();
       }
       buildHTML();
       prefectures.forEach(function(prefecture) {

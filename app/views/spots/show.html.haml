@@ -33,11 +33,15 @@
               コメント：3件
         .spots__show__contents__right__bottom__row
           - if current_user == @spot.author
-            .spots__show__contents__right__bottom__row__element__delete
-              
-              = link_to @spot, method: :delete, data: { confirm: 'この時期を削除します。よろしいですか？' } do
-                = icon('far', 'trash-alt')
-                記事の削除
+            %ul
+              %li.spots__show__contents__right__bottom__row__element.spots__show__contents__right__bottom__row__element__edit
+                = link_to edit_spot_path(@spot), data: {turbolinks: false} do
+                  = icon('fas', 'edit')
+                  編集する
+              %li.spots__show__contents__right__bottom__row__element.spots__show__contents__right__bottom__row__element__delete
+                = link_to @spot, method: :delete, data: { confirm: 'この時期を削除します。よろしいですか？' } do
+                  = icon('far', 'trash-alt')
+                  記事の削除
 
     .spots__show__contents__left
       .spots__show__contents__left__image

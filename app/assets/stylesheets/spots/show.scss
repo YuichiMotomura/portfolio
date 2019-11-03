@@ -23,7 +23,6 @@
         padding-left: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
 
         &__title {
           font-size: 30px;
@@ -41,19 +40,13 @@
         &__text {
           font-size: 18px;
           padding-right: 20px;
-          overflow: hidden;
+          height: 100%;
           margin-bottom: 25px;
           & p {
             word-wrap: break-word;
           }
         }
         &__bottom {
-          position: absolute;
-          bottom: 0;
-          right: 40px;
-          margin-bottom: 10px;
-          
-          
           margin-bottom: 20px;
           &__row {
             display: flex;
@@ -63,8 +56,16 @@
               margin-left: 30px;
               margin-bottom: 5px;
             }
+            & ul {
+              margin-top: 8px;
+              display: flex;
+              flex-direction: row;
+              & a {
+                text-decoration: none;
+                color: $tokyo_light_blue;
+              }
+            }
           }
-          
         }
       }
       &__left {
