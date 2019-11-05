@@ -5,9 +5,12 @@ $(function() {
   
   function buildHTML() {
     let html = `
-                <div class="spots__main__new__contents__form__prefecture--inner">
+                <div class="spots__main__new__contents__form__prefecture--inner spots__main__new__contents__form__prefecture__second">
                   <select name="spot[prefecture_id]", id="spot_prefecture_id">
                   </select>
+                </div>
+                <div class="spots__main__new__contents__form__prefecture--inner spots__main__new__contents__form__prefecture__second">
+                  <input placeholder="(任意)市町村以下" type="text" name="spot[address]" id="spot_address">
                 </div>
                 `
     selectOuter.append(html);
@@ -35,16 +38,16 @@ $(function() {
     })
     
     .done(function(prefectures) {
-      let selector = $('.spots__main__new__contents__form__prefecture--inner');
-      console.log(preNumber);
-      console.log(selector.length);
-      if (selector.length > 1) {
-        $('.spots__main__new__contents__form__prefecture--inner:last').remove();
+      let selector = $('.spots__main__new__contents__form__prefecture__second');
+      if (selector.length >= 2) {
+        selector.remove();
       }
+      
       buildHTML();
       prefectures.forEach(function(prefecture) {
         insertCity(prefecture);
-      });
+      })
+      
     })
     .fail(function() {
       alert('エラー');

@@ -31,12 +31,14 @@
       - if @spot.prefecture_id
         .spots__main__new__contents__form__prefecture--inner
           = f.collection_select :prefecture_pre_id, Prefecture.where('id <= 47'), :id, :name, {include_blank: '都道府県', selected: @pre_prefecture.id}
-        .spots__main__new__contents__form__prefecture--inner
+        .spots__main__new__contents__form__prefecture--inner.spots__main__new__contents__form__prefecture__second
           = f.collection_select :prefecture_id, Prefecture.find(@pre_prefecture.id).children, :id, :name, selected: @spot.prefecture.id
-
+        .spots__main__new__contents__form__prefecture--inner.spots__main__new__contents__form__prefecture__second
+          = f.text_field :address, placeholder: '市町村以下(任意)'
       - else
         .spots__main__new__contents__form__prefecture--inner
           = f.collection_select :prefecture_pre_id, Prefecture.where('id <= 47'), :id, :name, include_blank: '都道府県'
+        
 
   .spots__main__new__contents__form__common.spots__main__new__form__images
     %h3
