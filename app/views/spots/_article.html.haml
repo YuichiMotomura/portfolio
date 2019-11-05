@@ -25,8 +25,12 @@
         .spots__main__contents__article__right__bottom__row__element
           %p
             投稿者：
-            = spot.author.nickname if spot.author
+            = "#{spot.author.nickname}"
+        .spots__main__contents__article__right__bottom__row__element
+          %p
+            = "(#{spot.created_at.strftime('%Y/%m/%d')})"
   
+      .spots__main__contents__article__right__bottom__row
         .spots__main__contents__article__right__bottom__row__element
           %p
             いいね！：
@@ -35,7 +39,6 @@
         .spots__main__contents__article__right__bottom__row__element
           %p
             コメント：3件
-            
 
   .spots__main__contents__article__left
     .spots__main__contents__article__left__image
