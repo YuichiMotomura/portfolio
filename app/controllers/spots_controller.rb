@@ -18,6 +18,7 @@ class SpotsController < ApplicationController
     radar = @spot.radar
     ary = [radar[:retro], radar[:rare], radar[:insta], radar[:emotional], radar[:kawaii]]
     gon.data << ary
+    @google = "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.secrets.map_api}&callback=initMap"
   end
 
   def new
