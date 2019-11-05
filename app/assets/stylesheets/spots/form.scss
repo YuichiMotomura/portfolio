@@ -64,6 +64,13 @@
             background: transparent;
             color: lighten(black, 30%);
           }
+          & input[type="text"] {
+            width: calc(100% - 8px);
+            height: 100%;
+            border: none;
+            color: lighten(black, 30%);
+            padding-left: 8px;
+          }
         }
       }
       &__image {

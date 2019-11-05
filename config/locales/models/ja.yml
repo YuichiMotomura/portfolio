@@ -9,6 +9,7 @@ ja:
         title: スポット名
         text: スポットの紹介文
         prefecture: スポットの所在地
+        address: 市町村以下
       radar:
         retro: 評価：レトロ
         rare: 評価：レア

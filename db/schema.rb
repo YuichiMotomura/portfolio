@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_052253) do
+ActiveRecord::Schema.define(version: 2019_11_05_045308) do
 
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_052253) do
     t.datetime "updated_at", null: false
     t.bigint "prefecture_id"
     t.bigint "author_id"
+    t.string "address"
     t.index ["author_id"], name: "index_spots_on_author_id"
     t.index ["prefecture_id"], name: "index_spots_on_prefecture_id"
   end
