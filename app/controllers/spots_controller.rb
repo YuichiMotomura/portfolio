@@ -24,7 +24,6 @@ class SpotsController < ApplicationController
     @spot = Spot.new
     PICTURE_COUNT.times{ @spot.photos.build }
     count = @spot.photos.count
-    # binding.pry
     @spot.build_radar
   end
 
@@ -68,10 +67,9 @@ class SpotsController < ApplicationController
     redirect_to root_path, notice: '記事を削除しました'
   end
 
-
   private
   def spot_params
-    params.require(:spot).permit(:title, :text, :prefecture_id, photos_attributes: [:image, :image_cache, :spot_id, :_destroy, :id], radar_attributes: [:retro, :rare, :insta, :emotional, :kawaii]).merge(author_id: current_user.id)
+    params.require(:spot).permit(:title, :text, :prefecture_id, :address, photos_attributes: [:image, :image_cache, :spot_id, :_destroy, :id], radar_attributes: [:retro, :rare, :insta, :emotional, :kawaii]).merge(author_id: current_user.id)
   end
 
   def redirect_to_root
