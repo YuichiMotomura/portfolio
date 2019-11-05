@@ -7,7 +7,7 @@
         %h2
           = @spot.title if @spot.title
 
-      .spots__show__contents__right__prefecture
+      .spots__show__contents__right__prefecture#address
         %p
           - if @spot.prefecture
             = "#{@spot.prefecture.parent.name} #{@spot.prefecture.name}"
@@ -49,3 +49,44 @@
 
       .spots__show__contents__left__chart
         %canvas{id: "myChart0"}.mychart
+
+      .spots__show__contents__left__maps
+        %p.spots__show__contents__left__maps__heading
+          だいたいこの辺
+        - if @spot.address.present?
+          %input{name: 'address_for_map', type: 'hidden', value: @spot.prefecture.parent.name + ' ' + @spot.prefecture.name + ' ' + @spot.address, id: 'address_for_map'}
+        - else 
+          %input{name: 'address_for_map', type: 'hidden', value: @spot.prefecture.parent.name + ' ' + @spot.prefecture.name, id: 'address_for_map'}
+
+        #map.spots__show__contents__left__maps__google-map
+          
+
+
+:javascript
+    // let address = $('#address p').text().replace(/ /g, '').replace(/\r?\n/g, '');
+    let address = $('#address_for_map').val();
+    let map;
+    let geocoder
+    function initMap() {
+      geocoder = new google.maps.Geocoder();
+
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 15
+      });
+      geocoder.geocode( { 'address': address }, function(results, status) {
+        // console.log(results);
+        if(status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          });
+        } else {
+          alert('error' + status)
+        }
+      });
+      
+    }
+
+= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCQAUddqxcgc1k9mEmSFlBLkJ_TnIr5AsI&callback=initMap', async: 'defer'

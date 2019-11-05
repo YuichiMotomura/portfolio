@@ -80,7 +80,7 @@
           
         }
         &__image {
-          width: 70%;
+          width: 80%;
           text-align: center;
           margin-bottom: 15px;
           & img {
@@ -88,6 +88,16 @@
             
           }
         }
+        &__maps {
+          width: 70%;
+          margin-top: 25px;
+          margin-bottom: 25px;
+          
+          &__google-map {
+            width: 100%;
+            height: 250px;
+          }
+        } 
       }
     }
   }
