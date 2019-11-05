@@ -8,4 +8,5 @@ class Spot < ApplicationRecord
   validates :title, :text, :prefecture, :photos, presence: true
   validates :text, length: {maximum: 400}
   validates :title, length: {maximum: 50}
+  validates :address, length: {maximum: 20}
 end
