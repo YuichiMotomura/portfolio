@@ -11,10 +11,10 @@
   .spots__header__btns#headerBtns
     %ul
       %li
-        = link_to 'ジャンル', "#", class: 'spots__header__btns--1'
+        = link_to 'ジャンル', "#", class: 'spots__header__btns--1', data: {turbolinks: false}
         
       %li
-        = link_to 'ランキング', "#", class: 'spots__header__btns--2'
+        = link_to 'ランキング', "#", class: 'spots__header__btns--2', data: {turbolinks: false}
         
 
       - if user_signed_in?

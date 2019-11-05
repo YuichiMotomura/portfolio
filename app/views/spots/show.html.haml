@@ -22,7 +22,9 @@
             %p
               投稿者：
               = @spot.author.nickname if @spot.author
+              = "(#{@spot.created_at.strftime('%Y/%m/%d')})"
 
+        .spots__show__contents__right__bottom__row
           .spots__show__contents__right__bottom__row__element
             %p
               いいね！：
@@ -31,6 +33,7 @@
           .spots__show__contents__right__bottom__row__element
             %p
               コメント：3件
+
         .spots__show__contents__right__bottom__row
           - if current_user == @spot.author
             %ul
@@ -63,7 +66,6 @@
 
 
 :javascript
-    // let address = $('#address p').text().replace(/ /g, '').replace(/\r?\n/g, '');
     let address = $('#address_for_map').val();
     let map;
     let geocoder
@@ -75,7 +77,6 @@
       zoom: 15
       });
       geocoder.geocode( { 'address': address }, function(results, status) {
-        // console.log(results);
         if(status == 'OK') {
           map.setCenter(results[0].geometry.location);
           var marker = new google.maps.Marker({
