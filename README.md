@@ -69,7 +69,7 @@
 ### ER diagram
 - ER図
 
-  このアプリで使用されている、テーブルとアソシエーションを示すER図を下記に添付します。
+  このアプリで使用されている、テーブルとアソシエーションを示すER図を下記に添付します。
 
   ![ER図](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/2019-11-12%2022.44.58.png)
 
