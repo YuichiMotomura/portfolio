@@ -39,17 +39,38 @@
 - 記事の投稿
 
   ユーザー登録後は、記事の投稿が出来るようになります。
-  スポット名、スポットの紹介・エピソード、スポットの所在地、写真、評価はそれぞれ必須入力項目となっています。（未入力のまま[投稿する]を押すと、エラー画面が表示されます）
+  スポット名、スポットの紹介・エピソード、スポットの所在地、写真、評価はそれぞれ必須項目となっています。（未入力のまま[投稿する]を押すと、エラー画面が表示されます）
   投稿が成功した場合、フラッシュメッセージが表示され、トップページにリダイレクトします。
 
   ![記事の投稿](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/contribution_2.gif)
 
 - 記事の詳細ページ
+
+  トップページに表示されている、記事の中から[詳しく読む]を押すと、詳細ページに移動します。
+  詳細ページでは、評価のレーダーチャートとGoogle Mapにておおよその位置が表示されます。
+
+  ![記事の詳細ページ](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/show.gif)
+
 - 記事の編集
+
+  該当記事の投稿者である場合、詳細ページに[編集する]のリンクが表示されますので、押すと、編集画面に移動します。
+  ここでは、画像を含む、全要素が変更可能です。
+  [投稿する]ボタンを押すと、フラッシュメッセージが表示され、トップ画面にリダイレクトします。
+
+  ![記事の編集](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/update.gif)
+
 - 記事の削除
+  
+  該当記事の投稿者である場合、詳細ページに[記事の削除]のリンクが表示されますので、押すと、確認メッセージが表示され、[OK]を押すと、フラッシュメッセージが表示され、トップ画面にリダイレクトします。
+
+  ![記事の削除](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/delete.gif)
 
 
-### Tables & Association
+### ER diagram
 - ER図
-- テーブル(Column, Type, Options)
+
+  このアプリで使用されている、テーブルとアソシエーションを示すER図を下記に添付します。
+
+  ![ER図](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/2019-11-12%2022.44.58.png)
+
 
