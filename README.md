@@ -1,24 +1,40 @@
-# README
+# Name: 街ログ！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Overview
+- 街歩きや散歩、通勤・通学等で見かけた、街の気になる風景を投稿、紹介出来るアプリです。
 
-Things you may want to cover:
+### Description
+- このアプリを作るに当たって、下記の点を留意しました
+  - CRUDの要素を含んだアプリであること
+  - このアプリにアクセスしたユーザーは、誰でも記事を閲覧することが可能
+  - ユーザー登録することで、記事の投稿が可能になる
+  - 記事投稿の画面（新規スポットの作成）では、スポットの都道府県を選択すると、その市町村のセレクトボックスが表示される(ajaxの使用)
+  - スポットの評価を投稿し、レーダーチャートとして表示する(JavaScript使用)
+  - スポットの場所をGoogleMapで、表示する（GoogleMap API使用）
 
-* Ruby version
+- 今後は下記の機能を追加していく予定です
+  - いいね!機能
+  - 記事へのコメント機能
+  - 各都道府県ごとの特集ページ
+  - ユーザーマイページ
+  
 
-* System dependencies
+### Version
+- Ruby 2.5.1
+- Rails 5.2.3
 
-* Configuration
+### Author
+- Yuichi Motomura
 
-* Database creation
+### Demo
+- 使い方
+  - ユーザー登録
+  - 記事の投稿
+  - 記事の編集
+  - 記事の削除
+  - 記事の一覧から詳細
 
-* Database initialization
+### Tables & Association
+- ER図
+- テーブル(Column, Type, Options)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
