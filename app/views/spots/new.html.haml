@@ -6,4 +6,4 @@
       %h2.spots__main__new__contents__title
         新規スポットの作成
 
-      = render 'form'
+      = render partial: 'form', locals: { edit_flag: false }
