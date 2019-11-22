@@ -23,18 +23,26 @@ class SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
-    PICTURE_COUNT.times{ @spot.photos.build }
-    count = @spot.photos.count
+    @spot.photos.build
     @spot.build_radar
   end
 
   def create
     @spot = Spot.new(spot_params)
-    
+
+    @spot.photos.each do |photo|
+      unless photo.image.present?
+        photo.destroy
+      end
+    end
+  
     if @spot.save
       redirect_to root_path, notice: '投稿が完了しました' 
     else
       @pre_prefecture = @spot.prefecture.parent if @spot.prefecture.present?
+      # 保存失敗した場合、一度、画像は全部消す
+      @spot.photos.destroy_all
+      @spot.photos.build
       render :new
     end
   end
@@ -47,8 +55,9 @@ class SpotsController < ApplicationController
   def edit
     @spot = Spot.find(params[:id])
     @pre_prefecture = @spot.prefecture.parent if @spot.prefecture.present?
-    count = @spot.photos.count
-    @spot.photos[0].image.cache! if @spot.photos.present?
+    # 写真追加用
+    @spot.photos.build if @spot.photos.length < 5
+    # @spot.photos[0].image.cache! if @spot.photos.present?
   end
 
   def update
