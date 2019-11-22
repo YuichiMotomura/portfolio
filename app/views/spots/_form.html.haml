@@ -41,22 +41,34 @@
         
 
   .spots__main__new__contents__form__common.spots__main__new__form__images
-    %h3
-      = icon('fas', 'circle')
-      写真アップロード
+    .spots__main__new__form__images__title
+      %h3
+        = icon('fas', 'circle')
+        写真アップロード
     
-    -# - @spot.photos.each do |pho|
-    -# - unless @spot.photos[1]
-    .spots__main__new__contents__form__image
+    %ul.spots__main__new__form__images__fields
       = f.fields_for :photos do |pic|
-        = pic.label :image do
-          1.
-          = icon('fas', 'camera')
-          ファイルを選択して下さい
-        = pic.file_field :image
-        = pic.hidden_field :image_cache
-        = pic.hidden_field :id
+        %li.spots__main__new__contents__form__images__fields__field
+          = pic.label :image, id: 'img0_label' do
+            ="#{pic.index + 1}."
+            = icon('fas', 'camera')
+            選択
+          - if edit_flag.present?
+            - if @spot.photos[pic.index].id
+              %span.spots__main__new__contents__form__images__fields__field__preview--complete
+                = pic.file_field :image, class: 'spot_img'
+                = image_tag "#{@spot.photos[pic.index].image}", id: "img#{pic.index}_prev"
+            - else
+              %span.spots__main__new__contents__form__images__fields__field__preview
+                = pic.file_field :image, class: 'spot_img'
+                = image_tag "#{@spot.photos[pic.index].image}", id: "img#{pic.index}_prev"
 
+          - else
+            %span.spots__main__new__contents__form__images__fields__field__preview
+              = pic.file_field :image, class: 'spot_img'
+              = image_tag "#{@spot.photos[pic.index].image}", id: "img#{pic.index}_prev"
+              -# = pic.hidden_field :image_cache
+              -# = pic.hidden_field :id
 
   .spots__main__new__contents__form__common
     %h3
@@ -95,4 +107,4 @@
           = r.select :kawaii, [0, 1, 2, 3, 4, 5], include_blank: '選択して下さい', class: 'spots__main__new__form__radar__sele'
 
   .spots__main__new__contents__form__submit
-    = f.submit '投稿する'
+    = f.submit
