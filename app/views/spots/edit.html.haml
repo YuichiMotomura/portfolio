@@ -6,4 +6,4 @@
       %h2.spots__main__new__contents__title
         スポットの編集
 
-      = render 'form'
+      = render partial: 'form', locals: { edit_flag: true }
