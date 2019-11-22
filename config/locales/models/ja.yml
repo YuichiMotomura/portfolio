@@ -1,9 +1,9 @@
 ja:
   activerecord:
     models:
-      spot:
-      radar:
-      photos:
+      spot: スポット
+      radar: 評価
+      photo: 写真アップロード
     attributes:
       spot:
         title: スポット名
@@ -16,6 +16,5 @@ ja:
         insta: 評価：インスタ映え
         emotional: 評価：エモい
         kawaii: 評価：かわいい
-      photos:
-        image: 写真アップロード
-
+      photo:
+        image: 画像
