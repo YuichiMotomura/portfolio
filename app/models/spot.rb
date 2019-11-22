@@ -1,7 +1,8 @@
 class Spot < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_one :radar, dependent: :destroy
-  accepts_nested_attributes_for :photos, :radar
+  accepts_nested_attributes_for :photos, reject_if: proc { |attributes| attributes['image'].blank? }
+  accepts_nested_attributes_for :radar
   belongs_to :prefecture
   belongs_to :author, class_name: 'User'
 
