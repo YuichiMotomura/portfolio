@@ -9,6 +9,7 @@
     align-items: center;
     &__contents {
       width: 70%;
+      min-height: 100vh;
       display: flex;
       flex-direction: row-reverse;
       justify-content: flex-start;
@@ -77,17 +78,27 @@
         margin-bottom: 15px;
         width: 50%;
         &__chart {
-          width: 80%;
-          margin-bottom: 25px;
+          width: 60%;
+          margin-bottom: 40px;
           
         }
-        &__image {
+        &__images {
           width: 70%;
           text-align: center;
-          margin-bottom: 25px;
-          & img {
+          margin-bottom: 30px;
+          &__main {
+            & img {
+              width: 100%;
+              margin-bottom: 20px;
+              
+            }
+          }
+          &__nav {
             width: 100%;
-            
+            margin: 0 auto;
+            & img {
+              width: 97%;
+            }
           }
         }
         &__maps {
