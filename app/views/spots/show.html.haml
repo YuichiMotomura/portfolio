@@ -1,6 +1,6 @@
 = render partial: 'header'
 
-%main.spots__show
+%main.spots__show#main
   .spots__show__contents
     .spots__show__contents__right
       .spots__show__contents__right__title
@@ -47,11 +47,17 @@
                   記事の削除
 
     .spots__show__contents__left
-      .spots__show__contents__left__image
-        =image_tag @spot.photos[0].image.to_s if @spot.photos[0]
+      .spots__show__contents__left__images
+        %ul.spots__show__contents__left__images__main.slider-for
+          - @spot.photos.each_with_index do |photo, i|
+            %li
+              = image_tag @spot.photos[i].image.to_s if @spot.photos[i]
 
-      .spots__show__contents__left__chart
-        %canvas{id: "myChart0"}.mychart
+        %ul.spots__show__contents__left__images__nav.slider-nav
+          - if @spot.photos.length > 1
+            - @spot.photos.each_with_index do |photo, i|
+              %li
+                = image_tag @spot.photos[i].image.to_s if @spot.photos[i]      
 
       .spots__show__contents__left__maps
         %p.spots__show__contents__left__maps__heading
@@ -62,7 +68,9 @@
           %input{name: 'address_for_map', type: 'hidden', value: @spot.prefecture.parent.name + ' ' + @spot.prefecture.name, id: 'address_for_map'}
 
         #map.spots__show__contents__left__maps__google-map
-          
+
+      .spots__show__contents__left__chart
+        %canvas{id: "myChart0"}.mychart
 
 
 :javascript
