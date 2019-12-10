@@ -1,0 +1,30 @@
+.users {
+  background-color: lighten($tokyo_light_green, 30%);
+  min-height: 100vh;
+  font-family: 'arial black';
+  &__contents {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    background-color: $nagatani_white;
+    border-radius: 8px;
+    padding: 40px 0 40px 0;
+    
+    &__title, &__form {
+      padding: 0 40px 0 40px;
+    }
+
+    &__title {
+      & h2 {
+        font-size: 32px;
+      }
+    }
+
+    &__form {
+
+    }
+  }
+  &__bottom {
+    text-align: center;
+  }
+}
