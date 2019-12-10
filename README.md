@@ -27,41 +27,40 @@
 - [Yuichi Motomura](https://github.com/YuichiMotomura)
 
 ### Demo
-- ユーザー登録
+- ユーザーログイン(テスト用アカウントにて)
 
-  [トップページ](http://3.114.187.95/)に入りましたら、右上にある[ユーザー登録]から登録を行います。
-  Eメールは架空の物で構いません。
-  Nicknameは、記事の投稿者名として表示されます。
-  パスワードは6文字以上でお願いします。
+  - [トップページ](http://3.114.187.95/)に入りましたら、右上にある[ログイン]からログインします。
+    - Eメール：test@gmail.com
+    - パスワード：111111
 
-  ![ユーザー登録](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/sign_in_2.gif)
+  ![ユーザーログイン](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/user_register1210.gif)
 
 - 記事の投稿
 
-  ユーザー登録後は、記事の投稿が出来るようになります。
-  スポット名、スポットの紹介・エピソード、スポットの所在地、写真、評価はそれぞれ必須項目となっています。（未入力のまま[投稿する]を押すと、エラー画面が表示されます）
-  投稿が成功した場合、フラッシュメッセージが表示され、トップページにリダイレクトします。
+  - ユーザー登録後は、記事の投稿が出来るようになります。
+  - スポット名、スポットの紹介・エピソード、スポットの所在地、写真、評価はそれぞれ必須項目となっています。（未入力のまま[投稿する]を押すと、エラー画面が表示されます）
+  - 投稿が成功した場合、フラッシュメッセージが表示され、トップページにリダイレクトします。
 
-  ![記事の投稿](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/contribution_2.gif)
+  ![記事の投稿](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/create1210.gif)
 
 - 記事の詳細ページ
 
-  トップページに表示されている、記事の中から[詳しく読む]を押すと、詳細ページに移動します。
-  詳細ページでは、評価のレーダーチャートとGoogle Mapにておおよその位置が表示されます。
+  - トップページに表示されている、記事の中から[詳しく読む]を押すと、詳細ページに移動します。
+  - 詳細ページでは、評価のレーダーチャートとGoogle Mapにておおよその位置が表示されます。
 
-  ![記事の詳細ページ](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/show.gif)
+  ![記事の詳細ページ](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/show1210.gif)
 
 - 記事の編集
 
-  該当記事の投稿者である場合、詳細ページに[編集する]のリンクが表示されますので、押すと、編集画面に移動します。
-  ここでは、画像を含む、全要素が変更可能です。
+  - 該当記事の投稿者である場合、詳細ページに[編集する]のリンクが表示されますので、押すと、編集画面に移動します。
+  - ここでは、画像を含む、全要素が変更可能です。
   [投稿する]ボタンを押すと、フラッシュメッセージが表示され、トップ画面にリダイレクトします。
 
-  ![記事の編集](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/update.gif)
+  ![記事の編集](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/edit1210.gif)
 
 - 記事の削除
   
-  該当記事の投稿者である場合、詳細ページに[記事の削除]のリンクが表示されますので、押すと、確認メッセージが表示され、[OK]を押すと、フラッシュメッセージが表示され、トップ画面にリダイレクトします。
+  - 該当記事の投稿者である場合、詳細ページに[記事の削除]のリンクが表示されますので、押すと、確認メッセージが表示され、[OK]を押すと、フラッシュメッセージが表示され、トップ画面にリダイレクトします。
 
   ![記事の削除](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/delete.gif)
 
@@ -69,7 +68,7 @@
 ### ER diagram
 - ER図
 
-  このアプリで使用されている、テーブルとアソシエーションを示すER図を下記に添付します。
+  - このアプリで使用されている、テーブルとアソシエーションを示すER図を下記に添付します。
 
   ![ER図](https://raw.githubusercontent.com/wiki/YuichiMotomura/portfolio/images/2019-11-12%2022.44.58.png)
 
