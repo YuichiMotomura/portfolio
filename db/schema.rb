@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_045308) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry", default: ""
+    t.string "ancestry"
     t.index ["ancestry"], name: "index_prefectures_on_ancestry"
   end
 
