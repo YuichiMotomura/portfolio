@@ -1,5 +1,5 @@
 %header.spots__header#header
-  = render 'notifications'
+  = render 'spots/notifications'
 
   .spots__header__contents
     .spots__header__contents__title
@@ -21,10 +21,10 @@
         %li
           = link_to '投稿する', new_spot_path, class: 'spots__header__btns--1', data: {turbolinks: false}
         %li
-          = link_to 'ログアウト', destroy_user_session_path, method: 'delete', class: 'spots__header__btns--2'
+          = link_to 'ログアウト', destroy_user_session_path, method: 'delete', class: 'spots__header__btns--2', data: {turbolinks: false}
       
       - else
         %li
-          = link_to 'ログイン', new_user_session_path, class: 'spots__header__btns--1'
+          = link_to 'ログイン', new_user_session_path, class: 'spots__header__btns--1', data: {turbolinks: false}
         %li
-          = link_to 'ユーザー登録', new_user_registration_path, class: 'spots__header__btns--2'
+          = link_to 'ユーザー登録', new_user_registration_path, class: 'spots__header__btns--2', data: {turbolinks: false}
