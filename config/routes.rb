@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'spots#index'
+  devise_for :users
+  resources :users, only:[:show, :edit, :update]
   resources :spots do
     collection do
       get :search_prefecture
     end
   end
-  
 end
