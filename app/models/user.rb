@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :spots
+  has_many :comments
 
   validates :email, :password, :nickname, presence: true
 end
