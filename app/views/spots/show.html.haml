@@ -1,76 +1,83 @@
-= render partial: 'header'
+= render partial: 'spots/header'
 
 %main.spots__show#main
   .spots__show__contents
-    .spots__show__contents__right
-      .spots__show__contents__right__title
-        %h2
-          = @spot.title if @spot.title
-
-      .spots__show__contents__right__prefecture#address
-        %p
-          - if @spot.prefecture
-            = "#{@spot.prefecture.parent.name} #{@spot.prefecture.name}"
-
-      .spots__show__contents__right__text
-        %p
-          = simple_format(@spot.text) if @spot.text
-          
-      .spots__show__contents__right__bottom
-        .spots__show__contents__right__bottom__row
-          .spots__show__contents__right__bottom__row__element
-            %p
-              投稿者：
-              = @spot.author.nickname if @spot.author
-              = "(#{@spot.created_at.strftime('%Y/%m/%d')})"
-
-        .spots__show__contents__right__bottom__row
-          .spots__show__contents__right__bottom__row__element
-            %p
-              いいね！：
-              = icon 'fas', 'heart'
-              3
-          .spots__show__contents__right__bottom__row__element
-            %p
-              コメント：3件
-
-        .spots__show__contents__right__bottom__row
-          - if current_user == @spot.author
-            %ul
-              %li.spots__show__contents__right__bottom__row__element.spots__show__contents__right__bottom__row__element__edit
-                = link_to edit_spot_path(@spot), data: {turbolinks: false} do
-                  = icon('fas', 'edit')
-                  編集する
-              %li.spots__show__contents__right__bottom__row__element.spots__show__contents__right__bottom__row__element__delete
-                = link_to @spot, method: :delete, data: { confirm: 'この記事を削除します。よろしいですか？' } do
-                  = icon('far', 'trash-alt')
-                  記事の削除
-
-    .spots__show__contents__left
-      .spots__show__contents__left__images
-        %ul.spots__show__contents__left__images__main.slider-for
+    .spots__show__contents__top
+      .spots__show__contents__top__images
+        %ul.spots__show__contents__top__images__main.slider-for
           - @spot.photos.each_with_index do |photo, i|
             %li
               = image_tag @spot.photos[i].image.to_s if @spot.photos[i]
 
-        %ul.spots__show__contents__left__images__nav.slider-nav
+        %ul.spots__show__contents__top__images__nav.slider-nav
           - if @spot.photos.length > 1
             - @spot.photos.each_with_index do |photo, i|
               %li
-                = image_tag @spot.photos[i].image.to_s if @spot.photos[i]      
+                = image_tag @spot.photos[i].image.to_s if @spot.photos[i]
+      .spots__show__contents__top__info
+        .spots__show__contents__top__info__title
+          %h2
+            = @spot.title if @spot.title
 
-      .spots__show__contents__left__maps
-        %p.spots__show__contents__left__maps__heading
+        .spots__show__contents__top__info__prefecture#address
+          %p
+            - if @spot.prefecture
+              = "#{@spot.prefecture.parent.name} #{@spot.prefecture.name}"
+
+        .spots__show__contents__top__info__text
+          %p
+            = simple_format(@spot.text) if @spot.text
+
+    .spots__show__contents__middle
+      .spots__show__contents__middle__maps
+        %p.spots__show__contents__middle__maps__heading
           だいたいこの辺
         - if @spot.address.present?
           %input{name: 'address_for_map', type: 'hidden', value: @spot.prefecture.parent.name + ' ' + @spot.prefecture.name + ' ' + @spot.address, id: 'address_for_map'}
         - else 
           %input{name: 'address_for_map', type: 'hidden', value: @spot.prefecture.parent.name + ' ' + @spot.prefecture.name, id: 'address_for_map'}
 
-        #map.spots__show__contents__left__maps__google-map
-
-      .spots__show__contents__left__chart
+        #map.spots__show__contents__middle__maps__google-map
+      
+      .spots__show__contents__middle__chart
         %canvas{id: "myChart0"}.mychart
+          
+      .spots__show__contents__middle__bottom
+        .spots__show__contents__middle__bottom__info
+          .spots__show__contents__middle__bottom__info__author
+            = "投稿者：#{@spot.author.nickname if @spot.author}"
+          .spots__show__contents__middle__bottom__info__date
+            = "投稿日：#{@spot.created_at.strftime('%Y/%m/%d')}"
+          .spots__show__contents__middle__bottom__info__like
+            いいね！：
+            = icon 'fas', 'heart'
+            3
+        .spots__show__contents__middle__bottom__btns
+          - if current_user == @spot.author
+            %ul
+              %li.spots__show__contents__middle__bottom__row.spots__show__contents__right__bottom__row__element__edit
+                = link_to edit_spot_path(@spot), data: {turbolinks: false} do
+                  = icon('fas', 'edit')
+                  編集する
+              %li.spots__show__contents__middle__bottom__row.spots__show__contents__right__bottom__row__element__delete
+                = link_to @spot, method: :delete, data: { confirm: 'この記事を削除します。よろしいですか？' } do
+                  = icon('far', 'trash-alt')
+                  記事の削除
+
+    .spots__show__contents__comments
+      .spots__show__contents__comments__form
+        - if user_signed_in?
+          = form_with model: [@spot, @comment], local: true do |f|
+            = f.text_area :comment, placeholder: "コメントを投稿しよう! (140文字まで)", rows: 3
+            = f.submit
+
+      .spots__show__contents__comments__comment
+        %h2
+          Comments
+
+        - if @comments.present?
+          = render partial: 'spots/comment', collection: @comments, as: 'comment'
+
 
 
 :javascript

@@ -14,6 +14,9 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
+    @comments = @spot.comments.order(id: 'DESC').includes(:user)
+    @comment = Comment.new
+
     gon.data = []
     radar = @spot.radar
     ary = [radar[:retro], radar[:rare], radar[:insta], radar[:emotional], radar[:kawaii]]

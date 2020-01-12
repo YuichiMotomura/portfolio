@@ -1,4 +1,4 @@
-- if flash.notice.present?
+- if flash.present?
   #flash
     - flash.each do |key, value|
       = content_tag :div, value, class: key
