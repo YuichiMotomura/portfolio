@@ -72,10 +72,10 @@
             = f.submit
 
       .spots__show__contents__comments__comment
-        %h2
-          Comments
 
         - if @comments.present?
+          %h2
+            Comments
           = render partial: 'spots/comment', collection: @comments, as: 'comment'
 
 
