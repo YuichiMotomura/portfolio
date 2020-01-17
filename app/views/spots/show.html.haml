@@ -49,9 +49,26 @@
           .spots__show__contents__middle__bottom__info__date
             = "投稿日：#{@spot.created_at.strftime('%Y/%m/%d')}"
           .spots__show__contents__middle__bottom__info__like
-            いいね！：
-            = icon 'fas', 'heart'
-            3
+            - if user_signed_in?
+              - if @spot.liked_users.exists?(id: [current_user.id])
+                - like = @spot.likes.find_by(user_id: current_user.id)
+                = link_to spot_like_path(@spot, like.id), method: :delete do
+                  いいね！：
+                  = icon('fas','heart')
+                  %span.spots__show__contents__middle__bottom__info__like__count
+                    = @spot.liked_users.count
+              - else
+                = link_to spot_likes_path(@spot), method: :post do
+                  いいね！：
+                  = icon('fas','heart')
+                  %span.spots__show__contents__middle__bottom__info__like__count
+                    = @spot.liked_users.count
+            - else
+              いいね！：
+              = icon('fas','heart')
+              %span.spots__show__contents__middle__bottom__info__like__count
+                = @spot.liked_users.count
+
         .spots__show__contents__middle__bottom__btns
           - if current_user == @spot.author
             %ul

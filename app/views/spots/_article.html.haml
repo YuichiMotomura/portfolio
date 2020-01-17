@@ -35,7 +35,7 @@
           %p
             いいね！：
             = icon 'fas', 'heart'
-            3
+            = spot.liked_users.count
         .spots__main__contents__article__right__bottom__row__element
           %p
             = "コメント： #{spot.comments.count}件"
