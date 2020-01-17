@@ -6,6 +6,8 @@ class Spot < ApplicationRecord
   belongs_to :prefecture
   belongs_to :author, class_name: 'User'
   has_many :comments
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
 
   validates :title, :text, :prefecture, :photos, presence: true
   validates :text, length: {maximum: 400}
