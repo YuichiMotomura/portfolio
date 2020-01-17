@@ -1,7 +1,7 @@
 .users {
   background-color: lighten($tokyo_light_green, 30%);
   min-height: 100vh;
-  font-family: 'arial black';
+  font-family: 'kokuTetsuMedium';
   &__contents {
     width: 70%;
     margin: 0 auto;
@@ -15,13 +15,16 @@
     }
 
     &__title {
+      margin-bottom: 20px;
       & h2 {
         font-size: 32px;
       }
     }
 
     &__form {
-
+      &__email, &__password, &__remember {
+        margin-bottom: 15px;
+      }
     }
   }
   &__bottom {

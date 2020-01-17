@@ -91,6 +91,18 @@
           &__info {
             text-align: right;
             margin-top: 20px;
+            &__like{
+              i {
+                color: $tokyo_red;
+              }
+              &__count {
+                color: $tokyo_red;
+              }
+            }
+            a {
+              text-decoration: none;
+              color: black;
+            }
           }
           &__btns {
             & ul {

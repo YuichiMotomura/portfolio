@@ -22,3 +22,23 @@ $tokyo_silver: #b5b8ae;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'kokuTetsuMedium';
+  src: url('MPLUSRounded1c-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'kokuTetsuBold';
+  src: url('MPLUSRounded1c-Medium.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'kokuTetsuExtraBold';
+  src: url('MPLUSRounded1c-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
