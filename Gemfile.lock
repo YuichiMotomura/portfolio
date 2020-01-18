@@ -351,7 +351,7 @@ DEPENDENCIES
   mini_magick
   mysql2
   pry-rails
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.2, >= 5.2.2.1)
   sass-rails (~> 5.0)
   selenium-webdriver
