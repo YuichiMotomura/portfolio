@@ -1,29 +1,31 @@
 .spots {
   &__header {
     background-color: $nagatani_yellow;
-    
-    
     &__contents {
       margin: 0 auto;
       padding: 20px 0 0 0;
       width: 70%;
-      & p {
-        text-align: center;
-        font-size: 20px;
-        letter-spacing: 10px;
-        color: $nagatani_red;
-        margin-bottom: 40px;
-        font-family: 'kokuTetsuExtraBold';
-      }
       &__title {
         text-align: center;
         letter-spacing: 10px;
-        font-family: 'kokuTetsuExtraBold';
-        
-        & a {
+        font-family: 'Kosugi Maru';
+        margin-top: 0px;
+
+        & p {
+          text-align: center;
+          font-size: 1.5em;
+          letter-spacing: 8px;
+          color: $nagatani_red;
+          margin-bottom: 15px;
+          margin-top: 15px;
+          font-family: 'M PLUS 1p';
+          font-weight: bold;
+        }
+
+        a {
           text-decoration: none;
           color: $nagatani_black;
-          font-size: 60px;
+          font-size: 4em;
           font-weight: bold;
         }
       }
@@ -34,16 +36,16 @@
       flex-direction: row;
       justify-content: center;
       background-color: inherit;
-      & ul {
+      ul {
         width: 70%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         list-style: none;
-        font-family: 'kokuTetsuMedium';
-        & li {
+        font-family: 'Kosugi Maru';
+        li {
           width: 25%;
-          & a {
+           a {
             display: inline-block;
             text-decoration: none;
             width: 100%;
@@ -68,7 +70,6 @@
         background-color: inherit;
         z-index: 1;
       }
-      
     }
   }
   &__main {
@@ -84,7 +85,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-family: 'ほのか明朝';
+      font-family: 'Noto Serif JP';
       &__article {
         border-radius: 8px;
         width: 100%;
